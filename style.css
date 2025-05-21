@@ -1,13 +1,88 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
-@media (max-width: 600px) {
+@media (min-width: 768px) {
+  body {
+    max-width: 1440px;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
 
-    /* style appliqué aux téléphones mobiles */
-    body {
-        /* padding: 1rem; */
-    }
+  .img-banner {
+    order: 2;
+    max-width: 50%;
+  }
+
+  .text-container {
+    max-width: 50%;
+    padding: 4rem;
+  }
+
+  .input-adress form {
+    max-width: 100%;
+  }
 }
 
+
+
+@media (min-width: 1024px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 colonnes égales */
+    height: 100vh;
+    padding: 4rem 6rem;
+    gap: 4rem;
+    align-items: center;
+    text-align: left;
+  }
+
+  .entete {
+    position: absolute;
+    top: 4rem;
+    left: 6rem;
+    background: none;
+    padding: 0;
+  }
+
+  .img-banner {
+    grid-column: 2 / 3;
+    height: 100%;
+  }
+
+  .img-banner img {
+    content: url("/images/hero-desktop.jpg");
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .text-container {
+    grid-column: 1 / 2;
+    max-width: 500px;
+    padding: 0;
+  }
+
+  .text-container h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    letter-spacing: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .text-container p {
+    font-size: 1rem;
+    line-height: 1.75rem;
+    color: hsl(0, 36%, 70%);
+  }
+
+  .input-adress {
+    margin-top: 2rem;
+  }
+
+  .input-adress form {
+    max-width: 100%;
+  }
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -22,74 +97,137 @@ body {
     font-family: 'Josefin Sans';
     background: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
     color: hsl(0, 6%, 24%);
-    margin: 0;
-    /* padding: 2rem; */
+    width: 100%;
+    max-width: 375px;
+    margin: 0 auto;
 }
+
+/* padding: 2rem; */
 
 .entete {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 2rem;
-  background-color: white;
-  margin: 0;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-left: 2rem;
-}
-
-.entete img {
-  width: 120px;
-}
-
-.img-banner img {
-  width: 100%;
-  max-width: 600px;
-  margin-bottom: 2rem;
-}
-
-
-/* .entete {
-    margin: 0;
     width: 100%;
-    max-width: 600px;
     display: flex;
     justify-content: flex-start;
     background-color: white;
-    img {
-        width: 120px;
-    }
-} */
+    margin: 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+}
 
+.entete img {
+    /* width: 150px; */
+    height: auto;
+}
+
+.img-banner {
+    width: 100%;
+    max-width: 375px;
+    /* limite la largeur de la bannière */
+    margin: 0 auto 2rem;
+    /* centre horizontalement et ajoute un margin bottom */
+    overflow: hidden;
+    /* évite les débordements */
+}
+
+.img-banner img {
+    width: 100%;
+    /* prend toute la largeur du parent */
+    height: auto;
+    /* conserve les proportions */
+    display: block;
+    /* évite un petit espace en bas */
+    object-fit: cover;
+    /* si tu veux que l'image remplisse le conteneur sans déformation */
+}
 
 .text-container {
+    height: auto;
     padding-top: 2rem;
     padding-bottom: 2rem;
     padding-left: 2rem;
     padding-right: 2rem;
-h1 {
-    font-size: 30pxpx;
-    font-weight: 600;
-    padding-bottom: 1rem;
+
+    h1 {
+        font-size: 30px;
+        font-weight: 600;
+        padding-bottom: 1rem;
+    }
+
+    span {
+        color: hsl(0, 36%, 70%);
+    }
+
+    p {
+        font-family: 'Josefin Sans';
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.5rem;
+        color: hsl(0, 36%, 70%);
+    }
+}
+@media (min-width: 1024px) {
+  .hero-mobile {
+    display: none;
+  }
+
+  .hero-desktop {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
 }
 
-span {
-    color: hsl(0, 36%, 70%);
+.input-adress form {
+    position: relative;
+    /* parent relatif pour le positionnement absolu du bouton */
+    max-width: 400px;
+    /* ou la largeur que tu souhaites */
+    margin: 0 auto;
 }
 
-p {
-    font-family: 'Josefin Sans';
+.email-input {
+    width: 100%;
+    padding: 1rem 6rem 1rem 1rem;
+    border: 1px solid hsl(0, 36%, 70%);
+    ;
+    border-radius: 30px;
     font-size: 16px;
-    font-weight: 300;
-    line-height: 1.5rem;
-    color: hsl(0, 36%, 70%);
-}
+    background-color: hsl(0, 100%, 98%);
 }
 
 
-footer {
-
+.email-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+/* .email-button {
+    position: absolute;
+    top: 1%;
+    right: 0.5rem;
+    padding: 1rem 2rem 1rem 2rem;
+    background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+    border-radius: 30px;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
 
 /* p {
     font-family: 'Josefin Sans';
